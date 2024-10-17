@@ -7,13 +7,18 @@ function App() {
   return (
     <>
       <h1>Vite + React</h1>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
+      <Device name="Laptop" price="70K"></Device>
+      <Device name="Mobile" price="20K"></Device>
       <Person></Person>
       <Student></Student>
+      <Student2></Student2>
     </>
   )
+}
+
+function Device(props){
+  console.log(props);
+  return <h2>Device name: {props.name}, Price: {props.price}</h2>
 }
 
 function Person() {
@@ -23,9 +28,25 @@ function Person() {
 
 function Student() {
   return (
-    <div>
+    <div className='student'>
       <h3>This is a student</h3>
       <p>Name:</p>
+      <p>Age:</p>
+    </div>
+  )
+}
+
+function Student2() {
+  const student2 = {
+    margin: '20px',
+    padding: '20px',
+    border: '3px solid yellow',
+    borderRadius: '20px'
+  }
+  return (
+    <div style={student2}>
+      <h3>This is a student2</h3>
+      <p>Name of the Student2:</p>
       <p>Age:</p>
     </div>
   )
