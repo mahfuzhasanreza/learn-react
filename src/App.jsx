@@ -10,13 +10,15 @@ function App() {
       <Device name="Laptop" price="70K"></Device>
       <Device name="Mobile" price="20K"></Device>
       <Person></Person>
+      <Student score="55" grade="E"></Student>
+      <Student score={90} grade="A"></Student>
       <Student></Student>
       <Student2></Student2>
     </>
   )
 }
 
-function Device(props){
+function Device(props) {
   console.log(props);
   return <h2>Device name: {props.name}, Price: {props.price}</h2>
 }
@@ -26,12 +28,13 @@ function Person() {
   return <h3>My name is Mahfuz. My age is {age}</h3>
 }
 
-function Student() {
+function Student({ score = 0, grade = 'F' }) {
+  console.log(grade, score);
   return (
     <div className='student'>
       <h3>This is a student</h3>
-      <p>Name:</p>
-      <p>Age:</p>
+      <p>Score: {score}</p>
+      <p>Grade: {grade}</p>
     </div>
   )
 }
