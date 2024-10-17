@@ -2,11 +2,20 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Todo from './Todo'
 
 function App() {
   return (
     <>
       <h1>Vite + React</h1>
+
+      <Todo
+        task="Learn React"
+        isDone={true}></Todo>
+      <Todo
+        task="Master React"
+        isDone={false}></Todo>
+
       <Device name="Laptop" price="70K"></Device>
       <Device name="Mobile" price="20K"></Device>
       <Person></Person>
