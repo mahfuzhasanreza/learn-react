@@ -3,8 +3,18 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Todo from './Todo'
+import Actor from './Actor'
+import Singer from './Singer'
 
 function App() {
+
+  const actors = ['Sakib', 'Salman', 'Jashim'];
+  const singers = [
+    { name: 'Mahfuzr', age: 67 },
+    { id: 1, name: 'Eva', age: 38 },
+    { id: 2, name: 'Shuvo', age: 30 }
+  ]
+
   return (
     <>
       <h1>Vite + React</h1>
@@ -23,6 +33,15 @@ function App() {
       <Student score={90} grade="A"></Student>
       <Student></Student>
       <Student2></Student2>
+
+      <Actor name={"SRK"}></Actor>
+      {
+        actors.map(actor => <Actor name={actor}></Actor>)
+      }
+
+      {
+        singers.map(singer => <Singer singer={singer}></Singer>)
+      }
     </>
   )
 }
