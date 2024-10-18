@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Todo from './Todo'
 import Actor from './Actor'
@@ -21,10 +18,30 @@ function App() {
     { id: 2, name: 'math', price: 300 }
   ];
 
+  function handleClick() {
+    alert('btn clicked');
+  }
+
+  const handleClick2 = () => {
+    alert('btn 2 clicked');
+  }
+
+  const addThree = (num) => {
+    alert(num + 3);
+  }
+
   return (
     <>
-      <h1>Vite + React</h1>
+      <h1>React Core Concepts</h1>
 
+      <button onClick={handleClick}>Click Now</button>
+      <button onClick={handleClick2}>Click Now 2</button>
+      <button onClick={() => { alert('btn 3 clicked') }}>Click Now 3</button>
+      {/* <button onClick={addThree(7)}>Add Three (Not Worked Properly, Problem)</button> */}
+      <button onClick={() => addThree(7)}>Add Three</button>
+
+
+      <br /> <br />
       <Todo
         task="Learn React"
         isDone={true}></Todo>
