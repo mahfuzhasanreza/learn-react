@@ -4,6 +4,7 @@ import Actor from './Actor'
 import Singer from './Singer'
 import BookStore from './BookStore'
 import Counter from './Counter'
+import Users from './Users'
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
   return (
     <>
       <h1>React Core Concepts</h1>
+
+      <Users></Users>
 
       <Counter></Counter>
 
