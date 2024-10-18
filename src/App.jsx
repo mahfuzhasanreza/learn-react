@@ -3,6 +3,7 @@ import Todo from './Todo'
 import Actor from './Actor'
 import Singer from './Singer'
 import BookStore from './BookStore'
+import Counter from './Counter'
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
   return (
     <>
       <h1>React Core Concepts</h1>
+
+      <Counter></Counter>
 
       <button onClick={handleClick}>Click Now</button>
       <button onClick={handleClick2}>Click Now 2</button>
