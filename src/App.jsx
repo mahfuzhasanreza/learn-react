@@ -5,15 +5,21 @@ import './App.css'
 import Todo from './Todo'
 import Actor from './Actor'
 import Singer from './Singer'
+import BookStore from './BookStore'
 
 function App() {
 
   const actors = ['Sakib', 'Salman', 'Jashim'];
   const singers = [
-    { name: 'Mahfuzr', age: 67 },
-    { id: 1, name: 'Eva', age: 38 },
-    { id: 2, name: 'Shuvo', age: 30 }
-  ]
+    { id: 1, name: 'Mahfuzr', age: 67 },
+    { id: 2, name: 'Eva', age: 38 },
+    { id: 3, name: 'Shuvo', age: 30 }
+  ];
+
+  const books = [
+    { id: 1, name: 'chemistry', price: 120 },
+    { id: 2, name: 'math', price: 300 }
+  ];
 
   return (
     <>
@@ -42,6 +48,8 @@ function App() {
       {
         singers.map(singer => <Singer singer={singer}></Singer>)
       }
+
+      <BookStore books={books}></BookStore>
     </>
   )
 }
