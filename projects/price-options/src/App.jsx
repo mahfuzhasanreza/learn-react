@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import NavBar from './components/NavBar/NavBar'
+import DaisyNav from './components/DaisyNav/DaisyNav'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      
+      <NavBar></NavBar>
+      <DaisyNav></DaisyNav>
       <h1 className='text-7xl bg-rose-700'>Vite + React</h1>
       
     </>
