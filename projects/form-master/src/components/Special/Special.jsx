@@ -1,8 +1,9 @@
 
-const Special = () => {
+const Special = ({ asset }) => {
     return (
         <div>
             <h2>Special</h2>
+            <p>received: {asset}</p>
         </div>
     );
 };
