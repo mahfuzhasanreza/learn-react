@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
 
-    const [success,setSuccess]=useState(false);
-    const [loginError, setLoginError]=useState('');
+    const [success, setSuccess] = useState(false);
+    const [loginError, setLoginError] = useState('');
 
     const handleLogin = e => {
         e.preventDefault();
@@ -73,5 +73,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;
