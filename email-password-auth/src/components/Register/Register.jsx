@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../../firebase.init';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const [success, setSuccess] = useState(false);
@@ -102,7 +103,7 @@ const Register = () => {
                         <span className="label-text ml-2">Accept our terms and condition</span>
                     </label>
                 </div>
-                <button className='btn btn-accent btn-wide my-8'>Login</button>
+                <button className='btn btn-accent btn-wide my-8'>Register</button>
             </form>
             {
                 errorMessage && <p className='text-red-500'>{errorMessage}</p>
@@ -110,6 +111,9 @@ const Register = () => {
             {
                 success && <p className='text-green-500'>Sign up is successful</p>
             }
+            <p>
+                Already have an account? Please <Link to='/login'>Login</Link>
+            </p>
         </div>
     );
 };
