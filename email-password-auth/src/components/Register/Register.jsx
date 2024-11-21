@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../../firebase.init';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -13,16 +13,17 @@ const Register = () => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-
+        const name = event.target.name.value;
+        const photo = event.target.photo.value;
         const terms = event.target.terms.checked;
 
-        console.log(email, password, terms);
+        console.log(email, password, terms, name, photo);
 
         // reset error and status
         setErrorMessage('');
         setSuccess(false);
 
-        if(!terms){
+        if (!terms) {
             setErrorMessage('Please accept our terms and condition');
             return;
         }
@@ -48,9 +49,20 @@ const Register = () => {
 
                 // send verification email address
                 sendEmailVerification(auth.currentUser)
-                .then(()=>{
-                    console.log('verification email sent');
-                })
+                    .then(() => {
+                        console.log('verification email sent');
+                    })
+
+                // update profile name and photo url
+                const profile = {
+                    displayName: name,
+                    photoURL: photo
+                }
+                updateProfile(auth.currentUser, profile)
+                    .then(() => {
+                        console.log('user profile updated');
+                    })
+                    .catch(error => console.log('user profile update error'))
             })
             .catch(error => {
                 console.log('ERROR', error);
@@ -63,6 +75,14 @@ const Register = () => {
         <div className='max-w-lg mx-auto'>
             <h2 className="text-4xl my-8">Register</h2>
             <form onSubmit={handleRegister}>
+                <label className="input input-bordered flex items-center gap-2 my-8">
+                    <input type="text" name='name' className="grow" placeholder="Name" required />
+                </label>
+
+                <label className="input input-bordered flex items-center gap-2 my-8">
+                    <input type="text" name='photo' className="grow" placeholder="Photo URL" required />
+                </label>
+
                 <label className="input input-bordered flex items-center gap-2 my-8">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
